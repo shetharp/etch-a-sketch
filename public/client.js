@@ -19,6 +19,7 @@ var firstMessage=true;    // What the first message, to start on the first value
     
     socket.on('new-lnw', function(newWidth){
       radius = floor(newWidth / 50);
+      console.log("New Line Weight: " + str(radius));
     });
     
     socket.on('new-pos', function(newPosition) { // handling new sensor values
