@@ -16,6 +16,11 @@ var firstMessage=true;    // What the first message, to start on the first value
       ctx.clear();
     });
 
+    
+    socket.on('new-lnw', function(newWidth){
+      radius = floor(newWidth / 10);
+    });
+    
     socket.on('new-pos', function(newPosition) { // handling new sensor values
 
       //TODO: Map the incoming 10-bit numbers to the height and width of the screen.

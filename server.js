@@ -36,7 +36,12 @@ parser.on('data', function(data) { // on data from the arduino
     io.emit('reset');
   }else{ // any other data we try to forward by spliting it
     var transmitData = [data.split(',')[0],data.split(',')[1]];
-    io.emit('new-pos', transmitData);
+    if (transmitData[0] == "lnw"){
+      io.emit('new-lnw', transmitData);
+    }
+    else {
+      io.emit('new-pos', transmitData);
+    }
   }
 });
 //----------------------------------------------------------------------------//
